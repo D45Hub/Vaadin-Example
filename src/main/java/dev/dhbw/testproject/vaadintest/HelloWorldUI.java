@@ -9,6 +9,10 @@ import com.vaadin.server.VaadinServlet;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.UI;
 
+
+/**
+ * This is a basic example of a "Hello World" page with Vaadin 8.
+ */
 @Theme("mytheme")
 public class HelloWorldUI extends UI
 {
@@ -18,10 +22,17 @@ public class HelloWorldUI extends UI
     @Override
     protected void init(VaadinRequest request)
     {
+        // A simple text label which displays "Hello World" to the page.
         Label helloWorldLabel = new Label("Hello World");
+
+        // This sets the page content to the label component and thus displays it.
         setContent(helloWorldLabel);
     }
-    
+
+    /**
+     * This is a basic Servlet which configures the URL where this page is available
+     * and actually deploys it to there.
+     */
     @WebServlet("/hello/*")
     @VaadinServletConfiguration(ui = HelloWorldUI.class, productionMode = false)
     public static class HelloWorldServlet extends VaadinServlet
@@ -32,5 +43,3 @@ public class HelloWorldUI extends UI
     }
 
 }
-
-
