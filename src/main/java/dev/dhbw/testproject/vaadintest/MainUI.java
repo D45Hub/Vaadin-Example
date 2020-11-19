@@ -16,6 +16,7 @@ import com.vaadin.data.provider.ListDataProvider;
 import com.vaadin.server.Page;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
+import com.vaadin.server.LegacyCommunicationManager.ClientCache;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Button.ClickListener;
@@ -80,6 +81,7 @@ public class MainUI extends UI
                 }
             }
         });
+
 
         personAdditionLayout.addComponents(nameField, surnameField, dateField, formCompleteButton);
         
