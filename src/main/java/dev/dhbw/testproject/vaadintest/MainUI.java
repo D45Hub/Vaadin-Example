@@ -55,8 +55,11 @@ public class MainUI extends UI
         personAdditionLayout.setId("personForm");
         Page.getCurrent().getStyles().add("#personForm {text-align: center;}");
         DateField dateField = new DateField();
+        dateField.setCaption("Birthdate");
         TextField nameField = new TextField();
+        nameField.setCaption("First Name");
         TextField surnameField = new TextField();
+        surnameField.setCaption("Last Name");
         Button formCompleteButton = new Button("Add Person");
         formCompleteButton.addClickListener(new ClickListener()
         {
