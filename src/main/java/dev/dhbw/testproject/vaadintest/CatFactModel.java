@@ -2,9 +2,12 @@ package dev.dhbw.testproject.vaadintest;
 
 import java.util.List;
 
+
+/**
+ * Simple model bean/class which represents the cat fact data from the REST API.
+ */
 public class CatFactModel
 {
-
     private List<String> data;
 
     public CatFactModel()

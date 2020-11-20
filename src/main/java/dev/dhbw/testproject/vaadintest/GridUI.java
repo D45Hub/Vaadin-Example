@@ -60,6 +60,10 @@ public class GridUI extends UI
         setContent(layout);
     }
 
+    /**
+     * This is a basic Servlet which configures the URL where this page is available
+     * and actually deploys it to there.
+     */
     @WebServlet("/grid/*")
     @VaadinServletConfiguration(ui = GridUI.class, productionMode = false)
     public static class GridServlet extends VaadinServlet

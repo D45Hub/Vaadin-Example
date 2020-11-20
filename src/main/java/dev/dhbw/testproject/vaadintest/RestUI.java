@@ -23,10 +23,14 @@ import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Button.ClickListener;
 
 
+/**
+ * Another more complete example of an application. This one fetches data from a
+ * REST API (https://meowfacts.herokuapp.com) and displays it in a pretty way
+ * with a button to get data from the API and then show it to the user.
+ */
 @Theme("mytheme")
 public class RestUI extends UI
 {
-
     private static final long serialVersionUID = 2824052883319408801L;
 
     private final static ObjectMapper MAPPER = new ObjectMapper();
@@ -34,19 +38,32 @@ public class RestUI extends UI
     @Override
     protected void init(VaadinRequest request)
     {
+        // Initialization of layout components.
         VerticalLayout factLayout = new VerticalLayout();
         factLayout.setId("factLayout");
-        
+
         CatFact initialCatFact = getCatFactFromService();
-        
+
+        /*
+         * You can set the content mode of these label components to the HTML mode and
+         * use HTML tags. They will be put in the HTML accordingly.
+         */
         Label siteHeader = new Label("<h1>Get your dose of cat facts</h1>", ContentMode.HTML);
-        
-        Label catFactLabel = new Label("<p>" + initialCatFact.getFactString() + "</p>", ContentMode.HTML);
+
+        Label catFactLabel = new Label("<p>" + initialCatFact.getFactString() + "</p>",
+                ContentMode.HTML);
         catFactLabel.setId("factLabel");
-               
+
         Button factRefreshButton = new Button("Get new cat fact.");
-        
-        Page.getCurrent().getStyles().add("#factLayout{padding: 30px 20%;} #factLabel{padding-bottom: 20px;}");
+
+        // Sets CSS styling of some elements.
+        Page.getCurrent().getStyles()
+                .add("#factLayout{padding: 30px 20%;} #factLabel{padding-bottom: 20px;}");
+
+        /*
+         * Initializes the action listener which replaces the text of a label with a new
+         * cat fact.
+         */
         factRefreshButton.addClickListener(new ClickListener()
         {
             private static final long serialVersionUID = -6384557494236864977L;
@@ -58,12 +75,17 @@ public class RestUI extends UI
                 catFactLabel.setValue("<p>" + randomCatFact.getFactString() + "</p>");
             }
         });
-        
+
         factLayout.addComponents(siteHeader, catFactLabel, factRefreshButton);
 
         setContent(factLayout);
     }
 
+    /**
+     * This method gets a new random cat fact from the REST API.
+     * 
+     * @return Returns a random cat fact.
+     */
     private CatFact getCatFactFromService()
     {
         String jsonOutput = getResponseFromService();
@@ -75,6 +97,13 @@ public class RestUI extends UI
         return output;
     }
 
+    /**
+     * This method gets the raw data in form of a String from the REST API with the
+     * random cat fact.
+     * 
+     * @return Returns the String response of the REST API with the GET call.
+     *         Ideally this will return a JSON object with the cat fact.
+     */
     private String getResponseFromService()
     {
         String response = "";
@@ -105,6 +134,14 @@ public class RestUI extends UI
         return response;
     }
 
+    /**
+     * This method parses the raw JSON string which comes from the REST API and
+     * translates it to a model class.
+     * 
+     * @param jsonString
+     *            The json String with the JSON cat fact object from the REST API.
+     * @return Returns the model object which is related to the JSON object.
+     */
     private CatFactModel parseCatModel(String jsonString)
     {
         CatFactModel model = null;
@@ -121,6 +158,14 @@ public class RestUI extends UI
         return model;
     }
 
+    /**
+     * This method converts the model object to the real cat fact object we are
+     * going to use internally.
+     * 
+     * @param model
+     *            The model object we want to convert.
+     * @return Returns the final object.
+     */
     private CatFact convertToInternalModel(CatFactModel model)
     {
         return new CatFact(model.getData().get(0));

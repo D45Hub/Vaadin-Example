@@ -60,6 +60,10 @@ public class SimpleExampleUI extends UI
         setContent(layout);
     }
 
+    /**
+     * This is a basic Servlet which configures the URL where this page is available
+     * and actually deploys it to there.
+     */
     @WebServlet("/simple/*")
     @VaadinServletConfiguration(ui = SimpleExampleUI.class, productionMode = false)
     public static class SimpleExampleServlet extends VaadinServlet
