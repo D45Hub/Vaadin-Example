@@ -29,6 +29,7 @@ public class SimpleFormComponent extends CustomComponent
          * form component.
          */
         TextField nameField = new TextField();
+        nameField.setPlaceholder("Enter your name");
         Button formSubmitButton = new Button("Submit");
         Label nameLabel = new Label();
 
