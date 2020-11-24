@@ -11,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import com.github.javafaker.Faker;
 import com.github.javafaker.Name;
 import com.vaadin.annotations.Theme;
+import com.vaadin.annotations.Title;
 import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.data.provider.ListDataProvider;
 import com.vaadin.server.Page;
@@ -32,7 +33,8 @@ import com.vaadin.ui.VerticalLayout;
  * the grid.
  */
 @Theme("mytheme")
-public class MainUI extends UI
+@Title("Grid Application Example")
+public class GridAppUI extends UI
 {
 
     private static final long serialVersionUID = 6494002448165828217L;
@@ -120,9 +122,9 @@ public class MainUI extends UI
         setContent(layout);
     }
 
-    @WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)
-    @VaadinServletConfiguration(ui = MainUI.class, productionMode = false)
-    public static class MyUIServlet extends VaadinServlet
+    @WebServlet(urlPatterns = "/*", name = "GridAppServlet", asyncSupported = true)
+    @VaadinServletConfiguration(ui = GridAppUI.class, productionMode = false)
+    public static class GridAppServlet extends VaadinServlet
     {
 
         private static final long serialVersionUID = -8557623511989821877L;

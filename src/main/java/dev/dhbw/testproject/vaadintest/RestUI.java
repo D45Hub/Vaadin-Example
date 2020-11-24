@@ -10,17 +10,18 @@ import javax.servlet.annotation.WebServlet;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.vaadin.annotations.Theme;
+import com.vaadin.annotations.Title;
 import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.server.Page;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
 import com.vaadin.shared.ui.ContentMode;
 import com.vaadin.ui.Button;
+import com.vaadin.ui.Button.ClickEvent;
+import com.vaadin.ui.Button.ClickListener;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
-import com.vaadin.ui.Button.ClickEvent;
-import com.vaadin.ui.Button.ClickListener;
 
 
 /**
@@ -29,6 +30,7 @@ import com.vaadin.ui.Button.ClickListener;
  * with a button to get data from the API and then show it to the user.
  */
 @Theme("mytheme")
+@Title("REST Example")
 public class RestUI extends UI
 {
     private static final long serialVersionUID = 2824052883319408801L;
