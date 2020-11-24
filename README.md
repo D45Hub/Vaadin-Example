@@ -1,7 +1,7 @@
 Vaadin Example
 ==============
 
-This is a simple example for a Vaadin 8 application that only requires a Servlet 3.0 container to run.
+This is a simple example for a Vaadin 8 application with an introductory presentation that only requires a Servlet 3.0 container to run.
 
 
 Workflow
