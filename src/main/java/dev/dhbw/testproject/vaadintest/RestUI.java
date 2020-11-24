@@ -27,7 +27,8 @@ import com.vaadin.ui.VerticalLayout;
 /**
  * Another more complete example of an application. This one fetches data from a
  * REST API (https://meowfacts.herokuapp.com) and displays it in a pretty way
- * with a button to get data from the API and then show it to the user.
+ * with a button to get data from the API and then show it to the user. The
+ * title annotation sets the name of the title of the page.
  */
 @Theme("mytheme")
 @Title("REST Example")

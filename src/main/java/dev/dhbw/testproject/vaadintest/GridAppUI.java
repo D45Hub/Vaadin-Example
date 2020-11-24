@@ -30,7 +30,7 @@ import com.vaadin.ui.VerticalLayout;
 /**
  * More complete example of an application. In here we have a grid with some
  * example persons in there and a form "component" which inserts new persons to
- * the grid.
+ * the grid. The title annotation sets the name of the title of the page.
  */
 @Theme("mytheme")
 @Title("Grid Application Example")
